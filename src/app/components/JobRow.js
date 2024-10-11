@@ -15,7 +15,7 @@ export default function JobRow() {
             <div>Product designer</div>
             <div>Remote &middot; New York, US | Full-time</div>
           </div>
-          <div className="content-end text-gray-500">
+          <div className="content-end text-gray-500 text-sm">
             2 weeks ago
           </div>
         </div>
