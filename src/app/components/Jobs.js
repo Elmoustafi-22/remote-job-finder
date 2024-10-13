@@ -3,7 +3,7 @@ import JobRow from "./JobRow";
 export default function Jobs() {
     return (
       <>
-        <div className="bg-slate-200 py-4 rounded-2xl">
+        <div className="bg-slate-200 py-6 rounded-b-3xl">
           <div className="container">
             <h2 className="font-bold mb-4 text-xl">Recent jobs</h2>
 
