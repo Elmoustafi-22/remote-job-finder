@@ -1,6 +1,8 @@
 import "./globals.css";
+import { Roboto } from "next/font/google";
 import Header from "./components/Header";
-import { Roboto } from "next/font/google"
+import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const inter = Roboto({ subsets: ["latin"], weight: "400" })
 export default function RootLayout({ children }) {
@@ -10,7 +12,10 @@ export default function RootLayout({ children }) {
         className={`${inter.className} bg-white`}
         
       >
-        {children}
+        <Toaster position="top-center" reverseOrder={false}/>
+        <Header />
+          {children}
+        <Footer/>
       </body>
     </html>
   );
