@@ -77,18 +77,13 @@ export default function JobForm() {
         <div className="flex">
           <div className="w-1/3">
             <h3>Job icon</h3>
-            <div className="bg-gray-100 border border-dotted rounded-md size-24 inline-flex items-center content-center justify-center">
-              <FontAwesomeIcon icon={faStar} className="text-gray-400" />
-            </div>
-            <div className="mt-2">
-              <Button variant="soft">Select file</Button>
-            </div>
+            <ImageUpload icon={faStar} />
           </div>
           <div className="grow">
             <h3>Contact info</h3>
             <div className="flex gap-2">
               <div>
-                <ImageUpload icon={faUser}/>
+                <ImageUpload icon={faUser} />
               </div>
               <div className="grow flex flex-col gap-1">
                 <TextField.Root placeholder="John Doe">
@@ -112,7 +107,13 @@ export default function JobForm() {
         </div>
         <TextArea placeholder="Job description" resize="vertical" />
         <div>
-          <button size="3" type="submit" className="w-full p-2 text-center bg-violet-700 rounded-md hover:opacity-85 text-slate-100">Save</button>
+          <button
+            size="3"
+            type="submit"
+            className="w-full p-2 text-center bg-violet-700 rounded-md hover:opacity-85 text-slate-100"
+          >
+            Save
+          </button>
         </div>
       </form>
     </Theme>

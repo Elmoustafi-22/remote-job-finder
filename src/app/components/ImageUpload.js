@@ -4,17 +4,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
+import Spinner from "./Spinner";
 import toast from "react-hot-toast";
 
-export default function ImageUpload({ icon }) {
+export default function ImageUpload({ name, icon }) {
   const fileInRef = useRef();
   const [url, setUrl] = useState("");
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
   async function handleUpload(ev) {
     const input = ev.target;
 
     if (input && input.files?.length > 0) {
+      setIsUploading(true)
       const file = input.files[0];
       const formData = new FormData();
       formData.append("file", file);
@@ -28,6 +31,7 @@ export default function ImageUpload({ icon }) {
           setUrl(response.data.link);
           setError("");
           toast.success("Image uploaded successfully!"); 
+          setIsUploading(false)
         }
       } catch (error) {
         console.error("Upload failed:", error)
@@ -40,12 +44,21 @@ export default function ImageUpload({ icon }) {
   return (
     <>
       <div className="bg-gray-100 border border-dotted rounded-md size-24 inline-flex items-center content-center justify-center">
-        {url ? (
-          <Image src={url} alt="Uploaded image" width={80} height={80} className="object-cover"/>
+        {isUploading ? (
+          <Spinner className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+        ) : url ? (
+          <Image
+            src={url}
+            alt="Uploaded image"
+            width={80}
+            height={80}
+            className=" max-w-20 max-h-20 object-cover"
+          />
         ) : (
           <FontAwesomeIcon icon={icon} className="text-gray-400" />
         )}
       </div>
+      <input type="hidden" value={url} name={name}/>
       <div className="mt-2">
         <input
           ref={fileInRef}
