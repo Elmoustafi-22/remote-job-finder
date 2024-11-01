@@ -13,8 +13,8 @@ export default function ImageUpload({ name, icon }) {
   const [error, setError] = useState("");
   const [isUploading, setIsUploading] = useState(false);
 
-  async function handleUpload(ev) {
-    const input = ev.target;
+  async function handleUpload(e) {
+    const input = e.target;
 
     if (input && input.files?.length > 0) {
       setIsUploading(true)
@@ -52,7 +52,7 @@ export default function ImageUpload({ name, icon }) {
             alt="Uploaded image"
             width={80}
             height={80}
-            className=" max-w-20 max-h-20 object-cover"
+            className=" max-w-20 max-h-20 object-cover hover:scale-110 hover:cursor-pointer transition rounded-sm"
           />
         ) : (
           <FontAwesomeIcon icon={icon} className="text-gray-400" />
@@ -64,7 +64,7 @@ export default function ImageUpload({ name, icon }) {
           ref={fileInRef}
           type="file"
           className="hidden"
-          onChange={handleUpload}
+          onChange={(e) => handleUpload(e)}
         />
         <Button
           variant="soft"

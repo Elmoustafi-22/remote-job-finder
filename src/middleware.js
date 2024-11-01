@@ -4,10 +4,6 @@ export default authkitMiddleware();
 
 export const config = { 
     matcher: [
-        "/", 
-        "/new-listing",
-        "/new-listing/:orgId*", 
-        "/new-company",
-        "/api/upload",
+        "/:path*"
     ] 
 };
