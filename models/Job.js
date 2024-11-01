@@ -14,6 +14,8 @@ const JobSchema = new Schema({
     contactName: {type: String, required: true},
     contactPhone: {type: String, required: true},
     contactEmail: {type: String, required: true},
+}, {
+    timestamps: true,
 });
 
 export const JobModel = models?.Job || model('Job', JobSchema);

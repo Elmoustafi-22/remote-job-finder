@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
-export default function JobRow() {
+export default function JobRow({jobDoc}) {
     return (
       <>
         <div className="bg-white p-4 rounded-lg hover:shadow-md  transition shadow-sm relative">
@@ -18,8 +18,8 @@ export default function JobRow() {
             </div>
             <div className="grow sm:flex">
               <div className="grow">
-                <div className="text-gray-600 text-sm">Amazon</div>
-                <div className="font-bold text-lg mb-1">Product designer</div>
+                <div className="text-gray-600 text-sm">{jobDoc?.orgName}</div>
+                <div className="font-bold text-lg mb-1">{jobDoc?.title || "Job Title Unavailable"}</div>
                 <div className="text-gray-400 text-sm">
                   Remote &middot; New York, US | Full-time
                 </div>
