@@ -7,6 +7,7 @@ import {
 import Hero from "./components/Hero";
 import Jobs from "./components/Jobs";
 
+
 export default async function Home() {
   const { user } = await withAuth();
   const signInUrl = await getSignInUrl();

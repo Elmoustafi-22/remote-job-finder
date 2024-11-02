@@ -1,13 +1,22 @@
+"use client"
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import TimeAgo from "react-timeago"
+import frenchStrings from "react-timeago/lib/language-strings/fr";
+import buildFormatter from "react-timeago/lib/formatters/buildFormatter";
+
+const formatter = buildFormatter(frenchStrings);
 
 export default function JobRow({jobDoc}) {
     return (
       <>
         <div className="bg-white p-4 rounded-lg hover:shadow-md  transition shadow-sm relative">
           <div className="absolute top-4 right-2">
-            <FontAwesomeIcon className="size-4 cursor-pointer text-gray-600" icon={faHeart} />
+            <FontAwesomeIcon
+              className="size-4 cursor-pointer text-gray-600"
+              icon={faHeart}
+            />
           </div>
           <div className="flex grow gap-4">
             <div className="content-center">
@@ -19,14 +28,18 @@ export default function JobRow({jobDoc}) {
             <div className="grow sm:flex">
               <div className="grow">
                 <div className="text-gray-600 text-sm">{jobDoc?.orgName}</div>
-                <div className="font-bold text-lg mb-1">{jobDoc?.title || "Job Title Unavailable"}</div>
+                <div className="font-bold text-lg mb-1">
+                  {jobDoc?.title || "Job Title Unavailable"}
+                </div>
                 <div className="text-gray-400 text-sm">
                   Remote &middot; New York, US | Full-time
                 </div>
               </div>
-              <div className="content-end text-gray-500 text-sm">
-                2 weeks ago
-              </div>
+              {jobDoc.createdAt && (
+                <div className="content-end text-gray-500 text-sm">
+                  <TimeAgo date={jobDoc.createdAt} />
+                </div>
+              )}
             </div>
           </div>
         </div>

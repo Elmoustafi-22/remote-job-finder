@@ -52,7 +52,7 @@ export default function ImageUpload({ name, icon }) {
             alt="Uploaded image"
             width={80}
             height={80}
-            className=" max-w-20 max-h-20 object-cover hover:scale-110 hover:cursor-pointer transition rounded-sm"
+            className=" max-w-20 max-h-20 object-cover hover:scale-120 hover:cursor-pointer transition rounded-sm"
           />
         ) : (
           <FontAwesomeIcon icon={icon} className="text-gray-400" />
