@@ -7,9 +7,9 @@ import Image from "next/image";
 import Spinner from "./Spinner";
 import toast from "react-hot-toast";
 
-export default function ImageUpload({ name, icon }) {
+export default function ImageUpload({ name, icon, defaultValue='' }) {
   const fileInRef = useRef();
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState(defaultValue);
   const [error, setError] = useState("");
   const [isUploading, setIsUploading] = useState(false);
 
