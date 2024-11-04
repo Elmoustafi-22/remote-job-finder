@@ -40,6 +40,7 @@ export default async function SingleJobPage(props) {
         </div>
 
         <div className="flex items-center gap-4 mt-6 bg-gray-100 p-8 rounded-lg">
+          <h3 className="font-bold mb-2 italic text-gray-600">To apply, send your CV and cover letter to the contact below</h3>
           <Image
             src={jobDoc?.contactPhoto}
             alt="contact person"
