@@ -45,6 +45,7 @@ export default async function NewListingPage() {
               <div className="border inline-block rounded-md">
                 {Object.keys(organisationNames).map((orgId) => (
                   <Link
+                    key={orgId}
                     href={`new-listing/${orgId}`}
                     className={`p-3 hover:shadow-md 
                         hover:bg-slate-100 transition 
