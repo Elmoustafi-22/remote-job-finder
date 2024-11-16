@@ -25,7 +25,8 @@ export default function JobRow({jobDoc}) {
     
     return (
       <>
-        <div className="bg-white p-3 rounded-lg hover:shadow-md  transition shadow-sm relative">
+        <div className="bg-white p-3 rounded-lg 
+          hover:shadow-2xl hover:translate-y-1  transition shadow-sm relative duration-300">
           <div className="absolute top-4 right-2">
             <FontAwesomeIcon
               className="size-4 cursor-pointer text-gray-600"
